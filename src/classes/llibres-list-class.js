@@ -2,6 +2,8 @@ import Llibres from './llibres-class';
 
 export class LlibresList {
 
+    llibres;
+    
     constructor() {
 
         this.carregarLocalStorage();
