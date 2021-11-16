@@ -3,7 +3,7 @@ import footer from "./templates/footer.html"
 import menu from "./templates/menu.html";
 
 import { omplirDB } from "./bd/omplir";
-import { LlibresList,AutorsList,EditorialsList,GeneresList } from "./classes/index";
+import { Llibre,LlibresList,AutorsList,EditorialsList,GeneresList } from "./classes/index";
 import { creaHTMLlistaLlibres} from './js/componentes'
 import { creaHTMLFormulariAfegir } from "./js/componentes";
 
@@ -67,14 +67,29 @@ document.querySelector("#enviarllibre").addEventListener('click', (event) => {
     let editorialllibre = document.querySelector("#editorialllibre").value;
     let generellibre = document.querySelector("#generellibre").value;
     let sinopsillibre = document.querySelector("#sinopsillibre").value;
+    let valoraciollibre= document.querySelector('#valoraciollibre').value
+    let isbnllibre= document.querySelector('#isbnllibre').value
+    let imatgellibre= document.querySelector('#imatgellibre').value
+
+
 
     let nouindex = parseInt(llista.darrer_element())+1;
 
-    ll = new Llibre(nouindex,autorllibre,titolllibre,editoriallibre,"0",)
+    let ll = new Llibre(nouindex,autorllibre,titolllibre,editorialllibre,isbnllibre,sinopsillibre,valoraciollibre,generellibre,imatgellibre)
+    llista.nouLlibre(ll);
     //let ll = new Llibre()
     //constructor(id_llibre,id_autors,titol,id_editorial,isbn,sinopsi,valoracio,id_genere,imatge_portada)
 
 
+
+    document.querySelector("#divllistar").remove();
+    let cos= document.createElement('div');
+    cos.id="divllistar"
+    cos.className="container w-75"
+    cos.style.display="none"
+
+    cos.innerHTML=creaHTMLlistaLlibres(llista,llista_autors,llista_editorials,llista_generes);
+    document.body.append(cos)
 
 
 
@@ -95,6 +110,7 @@ document.querySelector("#afegir").addEventListener('click',(event) => {
 })
 
 document.querySelector("#llistar").addEventListener('click',(event) => {
+
 
 
     document.querySelector("#divafegir").style.display="none"

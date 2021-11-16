@@ -70,15 +70,35 @@ export const creaHTMLFormulariAfegir = (llistaautors,llistaeditorials, llistagen
         </div>
 
         <div class="col-md-8 mb-3">
+            <label for="imatgellibre" class="form-label">Imatge Portada</label>
+            <input class="form-control" type="file" id="imatgellibre">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="isbnllibre" class="form-label">ISBN</label>
+            <input class="form-control" type="text" id="isbnllibre">
+        </div>
+
+        <div class="col-md-4 mb-3">
+        <label for="valoraciollibre" class="form-label">Valoració</label>
+        <select class="form-select" id="valoraciollibre" aria-label="select example" >
+            <option value="0">0 estrelles</option>
+            <option value="2">1 estrella</option>
+            <option value="4">2 estrelles</option>
+            <option value="6">3 estrelles</option>
+            <option value="8">4 estrelles</option>
+            <option value="10">10 estrelles</option>
+
+        </select>
+        </div>
+       
+        <div class="col-md-8 mb-3">
             <label for="sinopsillibre" class="form-label">Sinopsi</label>
             <textarea class="form-control" id="sinopsillibre" rows="3"></textarea>
         </div>
 
-        <div class="col-md-4 mb-3">
-            <label for="imatgellibre" class="form-label">Imatge Portada</label>
-            <input class="form-control" type="file" id="imatgellibre">
-        </div>
-
+        
+        
+       
         <div class="col-md-3 mb-3">
             <button id="enviarllibre" type="button" class="btn btn-warning">Enviar</button>
         </div>
@@ -96,14 +116,14 @@ export const creaHTMLFormulariAfegir = (llistaautors,llistaeditorials, llistagen
 export const creaHTMLlistaLlibres = (llistallibres, llistaautors,llistaeditorials,llistageneres) =>{
 
     let html=`<table class='table'>
-    <thead><tr><th>#Id</th><th>Llibres</th><th>Autors</th><th>Gènere</th><th>Editorials</th><th class='esborrar'>Esborrar</th></tr></thead><tbody>`
+    <thead><tr><th>#Id</th><th>Llibres</th><th>Autors</th><th>Gènere</th><th>Editorials</th><th>Valoració</th><th class='esborrar'>Esborrar</th></tr></thead><tbody>`
 
     for (let i of llistallibres.llibres)  {
    
         let cad_autors= llistaautors.cercaAutors(i.id_autors)
         let cad_editorials = llistaeditorials.cercaEditorial(i.id_editorial)
         let cad_generes = llistageneres.cercaGenere(i.id_genere)
-        html += `<tr ><td>${i.id_llibre}</td><td>${i.titol}</td><td>${cad_autors}</td><td>${cad_generes}</td><td>${cad_editorials}</td><td class='esborrar'>Au</td></tr>`
+        html += `<tr ><td>${i.id_llibre}</td><td>${i.titol}</td><td>${cad_autors}</td><td>${cad_generes}</td><td>${cad_editorials}</td><td>${i.valoracio}</td><td class='esborrar'>Au</td></tr>`
         console.log(i.titol)
 
 

@@ -50,6 +50,8 @@ export const omplirDB = (llista,llista_autors, llista_editorials, llista_generes
 
     ll = new Llibre(3,[3,4],"Buenos Presagios",1,"123456789","ble ble ble",10,2,"")
     llista.nouLlibre(ll);
+
+    
     
 
 
