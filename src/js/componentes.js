@@ -1,5 +1,5 @@
 import '../css/componentes.css';
-import { createForm } from './form'
+//import { createForm } from './firebase'
 // import webpacklogo from '../assets/img/webpack-logo.png';
 
 

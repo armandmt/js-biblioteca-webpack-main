@@ -2,10 +2,11 @@ import Autors  from './autors-class';
 
 export class AutorsList {
 
-    constructor() {
+    constructor(autors) {
 
-        this.carregarLocalStorage();
-        console.log(this.autors);
+        this.autors=autors;
+        //this.carregarLocalStorage();
+        //console.log(this.autors);
     }
 
     nouAutor(autor) {

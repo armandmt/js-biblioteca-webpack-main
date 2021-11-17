@@ -1,13 +1,16 @@
-import Llibres from './llibres-class';
 
 export class LlibresList {
 
-    llibres;
-    
-    constructor() {
+   
+    constructor(llibres) {
 
-        this.carregarLocalStorage();
+        this.llibres=llibres
+
+      
+        console.log("INICI Llista des de del constructor")
         console.log(this.llibres);
+        console.log("FI Llista des de del constructor")
+
     }
 
     darrer_element() {
@@ -18,7 +21,8 @@ export class LlibresList {
     nouLlibre(llibre) {
 
         this.llibres.push(llibre);
-        this.desarLocalStorage();
+        return this.darrer_element();
+        //this.desarLocalStorage();
 
 
     }
@@ -29,10 +33,10 @@ export class LlibresList {
     }
     carregarLocalStorage() {
 
-
-        this.llibres = ( localStorage.getItem('llibres') )
-                        ? JSON.parse( localStorage.getItem('llibres') )
-                        : [];
+        //console.log("Aqui no entro")
+        //this.llibres = ( localStorage.getItem('llibres') )
+        //                ? JSON.parse( localStorage.getItem('llibres') )
+        //                : [];
 
     }
 

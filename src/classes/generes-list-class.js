@@ -1,9 +1,10 @@
 
 export class GeneresList {
 
-    constructor() {
+    constructor(generes) {
 
-        this.carregarLocalStorage();
+        this.generes = generes;
+        //this.carregarLocalStorage();
         console.log(this.generes);
     }
 

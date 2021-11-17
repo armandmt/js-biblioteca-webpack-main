@@ -1,9 +1,10 @@
 
 export class EditorialsList {
 
-    constructor() {
+    constructor(editorials) {
 
-        this.carregarLocalStorage();
+        this.editorials = editorials;
+        //this.carregarLocalStorage();
         console.log(this.editorials);
     }
 
