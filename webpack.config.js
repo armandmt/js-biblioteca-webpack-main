@@ -7,7 +7,8 @@ module.exports = {
     mode: "development",
 
     output: {
-        clean: true
+        clean: true,
+        //publicPath: '/dist'
     },
 
     module: {

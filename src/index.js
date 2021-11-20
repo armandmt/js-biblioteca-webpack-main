@@ -135,6 +135,15 @@ obtenirDades().then((data) => {
     document.querySelector("#esborrar").addEventListener('click',(event) => {
     
     
+        let esborrables = document.querySelectorAll(".esborrar");
+
+        for (let i of esborrables)
+        {
+
+
+            i.classList.toggle('invisible')
+            console.log(i.innerHTML)
+        }
         // Visualitzar taula de llibres
     
     
