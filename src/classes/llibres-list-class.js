@@ -26,6 +26,17 @@ export class LlibresList {
 
 
     }
+    esborraLlibre(id) {
+        this.llibres.foreach( (v,i) => {
+
+            if (v.id==id)
+            {
+                delete this.llibres[i];
+                console.log (this.llibres)
+            }
+        })
+        
+    }
 
     desarLocalStorage() {
 

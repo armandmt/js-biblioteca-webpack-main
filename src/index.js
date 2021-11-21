@@ -139,14 +139,34 @@ obtenirDades().then((data) => {
 
         for (let i of esborrables)
         {
-
-
+           
             i.classList.toggle('invisible')
             console.log(i.innerHTML)
         }
         // Visualitzar taula de llibres
     
     
+    })
+
+    document.querySelector("#esborraritems").addEventListener('click',(event) =>
+    {
+
+            let clicked= document.querySelectorAll(".esborrar")
+
+            for (let i of clicked) 
+            {
+                
+                if (i.checked == true){
+
+                    llista.esborraLlibre()
+                    console.log(i.parentNode.parentNode.firstChild.innerHTML)   
+
+
+                }
+
+
+            }
+
     })
     
 
