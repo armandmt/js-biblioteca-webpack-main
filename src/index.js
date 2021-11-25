@@ -1,18 +1,27 @@
-import header from "./templates/header.html"
-import footer from "./templates/footer.html"
-import menu from "./templates/menu.html";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// vistes
+import { header,footer,menu } from "./vistes/headerfootermenu"
+import { creaHTMLFormulariAfegir } from "./vistes/afegirLllibre"
+import { creaHTMLlistaLlibres} from './vistes/llistaLlibres'
+import { formulariLogin,hideLogin } from "./vistes/loginView";
 
 import { omplirDB } from "./bd/omplir";
 import { obtenirDades, setLlibres} from "./js/firebase"
 
 import { Llibre,LlibresList,AutorsList,EditorialsList,GeneresList,UsuarisList } from "./classes/index";
-import { creaHTMLlistaLlibres} from './js/componentes'
-import { creaHTMLFormulariAfegir } from "./js/componentes";
+//import { creaHTMLFormulariAfegir } from "./js/componentes";
 
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Import the functions you need from the SDKs you need
+// Aquest objecte ja llegeix de la base de dades quan el creem des del constructor
+let use = new UsuarisList();
+
+// 
+header();
+
+
+//Login
 
 
 
@@ -20,14 +29,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // console.log(header)
 
 // inserim la capçalera
-let cap= document.createElement('div');
-cap.innerHTML=header
-document.body.append(cap)
+
 //-------------------
 // Inserim menu app
-let men= document.createElement('div');
-men.innerHTML=menu
-document.body.append(men)
+
+menu();
+
+
+formulariLogin();
+
 
 var llista,llista_autors,llista_editorials,llista_generes;
 
@@ -35,8 +45,8 @@ var llista,llista_autors,llista_editorials,llista_generes;
 console.log("Abans d'obtenir dades")
 //console.log(llista);
 
-let use = new UsuarisList();
-use.obtenirDades().then ((data) => console.log(data));
+
+
 
 obtenirDades().then((data) => {
 
@@ -52,6 +62,7 @@ obtenirDades().then((data) => {
     console.log(llista)
     let cos= document.createElement('div');
     cos.id="divllistar"
+    cos.style.display="none"
     cos.className="container w-75"
     cos.innerHTML=creaHTMLlistaLlibres(llista,llista_autors,llista_editorials,llista_generes);
     document.body.append(cos)
@@ -65,9 +76,7 @@ obtenirDades().then((data) => {
 
 
 
-    let peu= document.createElement('div');
-    peu.innerHTML=footer
-    document.body.append(peu)
+    footer();
 
 
     document.querySelector("#enviarllibre").addEventListener('click', (event) => {
