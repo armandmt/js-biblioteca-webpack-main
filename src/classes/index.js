@@ -9,6 +9,8 @@ import { EditorialsList } from './editorial-list-class'
 import { Editorial } from './editorial-class'
 import { Genere } from './genere-class'
 import { GeneresList } from './generes-list-class';
+import { UsuarisList } from './usuaris-list-class';
+import { Usuari } from './usuari-class';
 
 
 
@@ -20,5 +22,7 @@ export {
     EditorialsList,
     Editorial,
     Genere,
-    GeneresList
+    GeneresList,
+    UsuarisList,
+    Usuari
 }

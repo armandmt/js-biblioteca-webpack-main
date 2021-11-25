@@ -5,7 +5,7 @@ import menu from "./templates/menu.html";
 import { omplirDB } from "./bd/omplir";
 import { obtenirDades, setLlibres} from "./js/firebase"
 
-import { Llibre,LlibresList,AutorsList,EditorialsList,GeneresList } from "./classes/index";
+import { Llibre,LlibresList,AutorsList,EditorialsList,GeneresList,UsuarisList } from "./classes/index";
 import { creaHTMLlistaLlibres} from './js/componentes'
 import { creaHTMLFormulariAfegir } from "./js/componentes";
 
@@ -33,14 +33,17 @@ var llista,llista_autors,llista_editorials,llista_generes;
 
 // Lectura de dades del servidor
 console.log("Abans d'obtenir dades")
-console.log(llista);
+//console.log(llista);
+
+let use = new UsuarisList();
+use.obtenirDades().then ((data) => console.log(data));
 
 obtenirDades().then((data) => {
 
 
     console.log("Dins del then d'obtenir dades")
 
-    console.log(data)
+    console.log(data)   
     llista_autors = new AutorsList(data[1]);
     llista = new LlibresList(data[0])
     llista_editorials = new EditorialsList(data[2]);
