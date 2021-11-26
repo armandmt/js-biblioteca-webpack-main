@@ -1,10 +1,10 @@
 export class Asset {
 
 
-constructor(id,username,password,role_id) {
+constructor(id,model,location) {
 
 
-    this.id = id;
+    this.id_asset = id;
     this.model = model;
     this.location = location;
 
@@ -12,8 +12,51 @@ constructor(id,username,password,role_id) {
 
 }
 
-id: integer
-model_id: integer
-location_id: integer
-created: datetime
-updated: datetime
+
+/*
+[ {
+  "id_asset" : 0,
+  "model" : "Monitor BENQ GW240",
+  "location" : "Servidors"
+ 
+},
+{
+  "id_asset" : 1,
+  "model" : "Monitor BENQ GW240",
+  "location" : "Servidors"
+ 
+},
+{
+  "id_asset" : 2,
+  "model" : "Teclat Lenovo",
+  "location" : "Servidors"
+ 
+},
+{
+  "id_asset" : 3,
+  "model" : "Monitor BENQ GW240 / 1",
+  "location" : "Aula 106"
+ 
+},{
+  "id_asset" : 4,
+  "model" : "Monitor BENQ GW240 / 2",
+  "location" : "Aula 106"
+ 
+},{
+  "id_asset" : 5,
+  "model" : "Impressora Konica Minolta",
+  "location" : "Departament Informàtica"
+ 
+},{
+  "id_asset" : 6,
+  "model" : "Router Cisco XXXX",
+  "location" : "Servidors"
+ 
+},{
+  "id_asset" : 7,
+  "model" : "Projector Optmoa GT670",
+  "location" : "Aula 110"
+ 
+},
+]
+*/
