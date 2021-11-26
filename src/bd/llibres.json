@@ -2,7 +2,33 @@
 "llibres": [{"id_llibre":0,"id_autors":[0],"titol":"Dune","isbn":"123456789","id_editorial":0,"sinopsi":"bla bla bla","valoracio":10,"id_genere":0,"imatge_portada":""},{"id_llibre":1,"id_autors":[1],"titol":"Fundacio","isbn":"123456789","id_editorial":1,"sinopsi":"bla bla bla","valoracio":10,"id_genere":0,"imatge_portada":""},{"id_llibre":2,"id_autors":[2],"titol":"Mecanoscrit del segon origen","isbn":"123456789","id_editorial":2,"sinopsi":"bla bla bla","valoracio":10,"id_genere":1,"imatge_portada":""},{"id_llibre":3,"id_autors":[3,4],"titol":"Buenos Presagios","isbn":"123456789","id_editorial":1,"sinopsi":"ble ble ble","valoracio":10,"id_genere":2,"imatge_portada":""},{"id_llibre":4,"id_autors":["0"],"titol":"Gambit de Dama","isbn":"1234567890","id_editorial":"0","sinopsi":"bon llibre","valoracio":"8","id_genere":"0","imatge_portada":""},{"id_llibre":5,"id_autors":["0"],"titol":"sssss","isbn":"ddddd","id_editorial":"0","sinopsi":"ddd","valoracio":"0","id_genere":"0","imatge_portada":""},{"id_llibre":6,"id_autors":["0"],"titol":"sdsdsdsds","isbn":"dcvcxcxcxcx","id_editorial":"0","sinopsi":"dsdsdsdsdsds","valoracio":"0","id_genere":"0","imatge_portada":""}],
 "autors": [{"id_autor":0,"cognoms":"Herbert","nom":"Frank"},{"id_autor":1,"cognoms":"Asimov","nom":"Isaac"},{"id_autor":2,"cognoms":"de Pedrolo","nom":"Manuel"},{"id_autor":3,"cognoms":"Gaiman","nom":"Neil"},{"id_autor":4,"cognoms":"Pratchett","nom":"Terry"}],
 "generes": [{"id_genere":0,"genere":"Ciencia Ficció"},{"id_genere":1,"genere":"Històrica"},{"id_genere":2,"genere":"Policiaca"}],
-"editorials": [{"id_editorial":0,"nom":"Edicions B"},{"id_editorial":1,"nom":"Plaza&Janes"},{"id_editorial":2,"nom":"Raig Verd"}]
+"editorials": [{"id_editorial":0,"nom":"Edicions B"},{"id_editorial":1,"nom":"Plaza&Janes"},{"id_editorial":2,"nom":"Raig Verd"}],
+"usuaris": [ { 
+    "id_usuari" : 0,
+    "username" : "armand",
+    "password" : "maletin",
+    "id_role" : 0
+  }, {
+    "id_usuari" : 1,
+    "username" : "pep",
+    "password" : "maletin",
+    "id_role" : 1
+  }, {
+    "id_usuari" : 2,
+    "username" : "jordi",
+    "password" : "maletin",
+    "id_role" : 3
+  }, {
+    "id_usuari" : 3,
+    "username" : "alicia",
+    "password" : "maletin",
+    "id_role" : 2
+  }, {
+    "id_usuari" : 4,
+    "username" : "cristina",
+    "password" : "maletin",
+    "id_role" : 0
+  } ]
 }
 
 

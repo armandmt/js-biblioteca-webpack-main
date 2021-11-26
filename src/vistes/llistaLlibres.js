@@ -1,26 +1,3 @@
-import '../css/componentes.css';
-//import { createForm } from './firebase'
-// import webpacklogo from '../assets/img/webpack-logo.png';
-
-
-export const isLogged = () => {
-    
-    console.log('Comprovant si està validat');
-
-     let logged = sessionStorage.getItem('logged') 
-    
-     if (logged != undefined)
-        return  logged
-     else       
-        return -1
-    
-    // Img
-    // const img = document.createElement('img');
-    // img.src = webpacklogo;
-    // document.body.append( img );
-}
-
-
 export const creaHTMLlistaLlibres = (llistallibres, llistaautors,llistaeditorials,llistageneres) =>{
 
     let html=`<table class='table'>
@@ -48,9 +25,3 @@ export const creaHTMLlistaLlibres = (llistallibres, llistaautors,llistaeditorial
 
 
 }
-
-
-
-    
-    
-
