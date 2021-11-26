@@ -7,7 +7,7 @@ export const isLogged = () => {
     
     console.log('Comprovant si està validat');
 
-     let logged = localStorage.getItem('logged') 
+     let logged = sessionStorage.getItem('logged') 
     
      if (logged != undefined)
         return  logged

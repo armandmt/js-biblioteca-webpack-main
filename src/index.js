@@ -10,6 +10,7 @@ import { omplirDB } from "./bd/omplir";
 import { obtenirDades, setLlibres} from "./js/firebase"
 
 import { Llibre,LlibresList,AutorsList,EditorialsList,GeneresList,UsuarisList } from "./classes/index";
+import { isLogged } from './js/componentes';
 //import { creaHTMLFormulariAfegir } from "./js/componentes";
 
 
@@ -36,7 +37,17 @@ header();
 menu();
 
 
-formulariLogin();
+if (isLogged() == -1)
+{
+    formulariLogin();
+}
+else
+{
+    
+}
+
+
+
 
 
 var llista,llista_autors,llista_editorials,llista_generes;
