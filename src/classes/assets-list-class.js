@@ -1,21 +1,21 @@
-export class UsuarisList {
+export class AssetsList {
 
 
-    usuaris;
+    assets;
 
     constructor() {
 
-   
-        this.usuaris = [];
+        this.assets = [];
+        this.obtenirDades().then ((data) =>  { this.assets=data; console.log(data) } );
 
     }
     async obtenirDades()
     {
 
-        let data1 = await fetch('https://biblioteca-9f853-default-rtdb.europe-west1.firebasedatabase.app/llibres.json')
+        let data1 = await fetch('https://biblioteca-9f853-default-rtdb.europe-west1.firebasedatabase.app/assets.json')
         data1 = await data1.json();
         
-        console.log("hola2")
+        
         return data1;
     }
 
