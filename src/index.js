@@ -11,14 +11,14 @@ import { obtenirDades, setLlibres} from "./js/firebase"
 
 import { Llibre,LlibresList,AutorsList,EditorialsList,GeneresList,UsuarisList } from "./classes/index";
 import { isLogged } from './js/componentes';
+import { AssetsList } from './classes/assets-list-class';
 //import { creaHTMLFormulariAfegir } from "./js/componentes";
 
 
 
 // Aquest objecte ja llegeix de la base de dades quan el creem des del constructor
 let use = new UsuarisList();
-
-// 
+let asssets = new AssetsList();
 header();
 
 
@@ -35,6 +35,7 @@ header();
 // Inserim menu app
 
 menu();
+
 
 
 if (isLogged() == -1)
