@@ -1,3 +1,4 @@
+
 export const creaHTMLlistaLlibres = (llistallibres, llistaautors,llistaeditorials,llistageneres) =>{
 
     let html=`<table class='table'>
@@ -13,7 +14,7 @@ export const creaHTMLlistaLlibres = (llistallibres, llistaautors,llistaeditorial
         let cad_editorials = llistaeditorials.cercaEditorial(v.id_editorial)
         let cad_generes = llistageneres.cercaGenere(v.id_genere)
         html += `<tr ><td>${v.id_llibre}</td>
-        <td>${v.titol}</td><td>${cad_autors}
+        <td><a href="">${v.titol}</a></td><td>${cad_autors}
         </td><td>${cad_generes} </td><td>${cad_editorials}
         </td><td>${v.valoracio}</td>
         <td><input class="esborrar form-check-input invisible" type="checkbox" value="" id="esb${v.id_llibre}""></td></tr>`
@@ -31,6 +32,16 @@ export const creaHTMLlistaLlibres = (llistallibres, llistaautors,llistaeditorial
     
     html +=`</tbody></table>`
     return html;
+
+
+}
+
+
+export const veureLlibre = (llibre) => {
+
+
+
+    console.log(llibre);
 
 
 }

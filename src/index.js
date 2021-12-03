@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // vistes
 import { header,footer,menu } from "./vistes/headerfootermenu"
 import { creaHTMLFormulariAfegir } from "./vistes/afegirLllibre"
-import { creaHTMLlistaLlibres} from './vistes/llistaLlibres'
+import { creaHTMLlistaLlibres, veureLlibre} from './vistes/llistaLlibres'
 import { formulariLogin,hideLogin } from "./vistes/loginView";
 
 import { omplirDB } from "./bd/omplir";
@@ -38,14 +38,14 @@ menu();
 
 
 
-if (isLogged() == -1)
-{
-    formulariLogin();
-}
-else
-{
+// if (isLogged() == -1)
+// {
+//     formulariLogin();
+// }
+// else
+// {
     
-}
+// }
 
 
 
@@ -91,6 +91,18 @@ obtenirDades().then((data) => {
     footer();
 
 
+    document.querySelector("#divllistar").addEventListener('click',(event) => {
+
+
+        event.preventDefault();
+        let index=event.target.parentNode.previousElementSibling.innerHTML
+        console.log(index)
+
+        veureLlibre(llista.llibres[index])
+        
+
+
+    })
     document.querySelector("#enviarllibre").addEventListener('click', (event) => {
 
 
