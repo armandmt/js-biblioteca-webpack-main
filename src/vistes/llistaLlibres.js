@@ -1,4 +1,11 @@
 
+export const ocultaLlistaLlibres = () => {
+
+
+    
+
+}
+
 export const creaHTMLlistaLlibres = (llistallibres, llistaautors,llistaeditorials,llistageneres) =>{
 
     let html=`<table class='table'>
