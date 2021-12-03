@@ -21,7 +21,7 @@ let use = new UsuarisList();
 let asssets = new AssetsList();
 header();
 
-
+console.log(use)
 //Login
 
 
