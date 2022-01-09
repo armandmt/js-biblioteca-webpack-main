@@ -1,13 +1,22 @@
 export const crearFormulariFiltrar = () => {
 
 
-    const html = `<div class="col-md-12 mb-3" >
-    <label for="titolllibre" class="form-label">Titol del llibre</label>
-    <input type="text" class="form-control" id="titolllibre" placeholder="Títol del llibre">          
-    </div> `
+    const html = `
+    
+    <div class="row g-0 mb-3 mt-3" id="filtratge"> 
+        <div class="col-md-8 mb-3" >
+            
+            <input type="text" class="form-control" id="filtraautor" placeholder="Autors">          
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-info" id="ferfiltre">Filtrar</button>
+        </div>
+    </div> 
+    `
 
     
 
+    return html;
 
 
 

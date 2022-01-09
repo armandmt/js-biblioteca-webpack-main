@@ -74,16 +74,14 @@ obtenirDades().then((data) => {
     // Neteja 
     const myArrClean = data[0].filter(Boolean)
     llista = new LlibresList(myArrClean)
-    console.log("cACA",llista.llibres);
     llista_editorials = new EditorialsList(data[2]);
     llista_generes = new GeneresList(data[3]);
 
-    console.log(llista)
     let cos= document.createElement('div');
     cos.id="divllistar"
     cos.style.display="none"
     cos.className="container w-75"
-    cos.innerHTML=creaHTMLlistaLlibres(llista,llista_autors,llista_editorials,llista_generes);
+    cos.innerHTML=creaHTMLlistaLlibres(llista.llibres,llista_autors,llista_editorials,llista_generes);
     document.body.append(cos)
 
     cos= document.createElement('div');
@@ -94,8 +92,36 @@ obtenirDades().then((data) => {
     document.body.append(cos)
 
 
+    // Component de filtratge
+    let divfiltrar = document.createElement("div")
+    divfiltrar.id="divfiltrar"
+    divfiltrar.className="container w-75"
+    divfiltrar.innerHTML = crearFormulariFiltrar() 
+    divfiltrar.style.display="none"
+    document.body.insertBefore(divfiltrar,document.querySelector("#divllistar"))
+
+    document.querySelector("#ferfiltre").addEventListener('click',(event) => {
+
+        const ele = document.querySelector("#filtraautor").value
+        console.log("Valor filtre",ele)
+        // obté array filtrant autors
+        const v = llista_autors.filtraAutorsPerText(ele)
+        // obtenim array amb només els id dels autors filtrats
+        const dv = v.map(ele => ele.id_autor)
+        console.log(dv)
+        // obté llibres filtrant per llibres
+        const l = llista.filtraPerAutors(dv)
+        console.log(l)
+        let cos = document.querySelector("#divllistar")
+        
+        cos.innerHTML=creaHTMLlistaLlibres(l,llista_autors,llista_editorials,llista_generes);
+        
+
+    })
+
 
     footer();
+
 
 
     document.querySelector("#divllistar").addEventListener('click',(event) => {
@@ -111,7 +137,7 @@ obtenirDades().then((data) => {
             console.log("Esborrar",event.target.src,index)
             llista.esborraLlibre(parseInt(index));
            
-            document.querySelector("#divllistar").innerHTML=creaHTMLlistaLlibres(llista,llista_autors,llista_editorials,llista_generes);
+            document.querySelector("#divllistar").innerHTML=creaHTMLlistaLlibres(llista.llibres,llista_autors,llista_editorials,llista_generes);
             delLlibre(index)
            
 
@@ -151,7 +177,7 @@ obtenirDades().then((data) => {
         let imatgellibre= document.querySelector('#imatgellibre').value
     
     
-    
+        console.warn("Darrer element",llista.darrer_element()) 
         let nouindex = parseInt(llista.darrer_element())+1;
     
         let ll = new Llibre(nouindex,autorllibre,titolllibre,editorialllibre,isbnllibre,sinopsillibre,valoraciollibre,generellibre,imatgellibre)
@@ -170,11 +196,12 @@ obtenirDades().then((data) => {
         // cos.style.display="none"
     
         // crea HTML
-        cos.innerHTML=creaHTMLlistaLlibres(llista,llista_autors,llista_editorials,llista_generes);
+        cos.innerHTML=creaHTMLlistaLlibres(llista.llibres,llista_autors,llista_editorials,llista_generes);
         // document.body.append(cos)
         // crea esdeveniments
     
     
+
         alert (titolllibre+ " " + nouindex)
     
     })
@@ -193,8 +220,7 @@ obtenirDades().then((data) => {
     
     document.querySelector("#llistar").addEventListener('click',(event) => {
     
-    
-    
+       
         document.querySelector("#divafegir").style.display="none"
         document.querySelector("#divllistar").style.display="block"
         // Visualitzar taula de llibres
@@ -203,10 +229,37 @@ obtenirDades().then((data) => {
     })
     
     document.querySelector("#filtrar").addEventListener('click',(event) => {
-    
-    
-        //document.querySelector(#divllistar).
-        crearFormulariFiltrar()    
+       
+        // Comprovo l'estat dels bloxk llistar i filtrar
+        const estat = document.querySelector("#divfiltrar").style.display;
+        const estatl = document.querySelector("#divllistar").style.display;
+        
+
+        if (estat == "none" && estatl == "block")
+            document.querySelector("#divfiltrar").style.display = "block";
+        else
+            document.querySelector("#divfiltrar").style.display = "none";
+
+        // let existeixdiv = document.querySelector("#divfiltrar")
+        // // Comprovem si el div de filtrar existeix
+        // // Si no existeix, es crea
+        // if (existeixdiv == undefined)
+        // {
+        //     let divfiltrar = document.createElement("div")
+        //     divfiltrar.id="divfiltrar"
+        //     divfiltrar.className="container w-75"
+        //     divfiltrar.innerHTML = crearFormulariFiltrar() 
+        //     document.body.insertBefore(divfiltrar,document.querySelector("#divllistar"))
+
+
+        // }
+        // else  // Si existeix s'esborra
+        // {
+        //     existeixdiv.remove();
+        // }
+        
+        // //document.querySelector(#divllistar).
+            
     
     
     })

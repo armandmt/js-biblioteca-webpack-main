@@ -14,8 +14,8 @@ export const creaHTMLlistaLlibres = (llistallibres, llistaautors,llistaeditorial
     <th class='esborrar invisible'><button id="esborraritems" type="button" class="btn btn-outline-danger btn-sm">Esborrar</button>
     </th></tr></thead><tbody>`
 
-    
-    llistallibres.llibres.forEach( (v,i,array) => {
+    // Se li passa l'array de llistallibres, no l'objecte sencer
+    llistallibres.forEach( (v,i,array) => {
         
         let cad_autors= llistaautors.cercaAutors(v.id_autors)
         let cad_editorials = llistaeditorials.cercaEditorial(v.id_editorial)

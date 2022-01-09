@@ -9,17 +9,17 @@ export const creaHTMLFormulariAfegir = (llistaautors,llistaeditorials, llistagen
     // Creem les opcions del select, a partir de les dades
     for (let i of llistaautors.autors)  {
    
-        opcions += "<option value='" + i.id_autor + "'>"+i.nom+" "+i.cognoms +"</option>"
+        opcions += "<option value=" + i.id_autor + ">"+i.nom+" "+i.cognoms +"</option>"
     }
 
     for (let i of llistaeditorials.editorials)  {
    
-        opcionsed += "<option value='" + i.id_editorial + "'>"+i.nom+"</option>"
+        opcionsed += "<option value=" + i.id_editorial + ">"+i.nom+"</option>"
     }
 
     for (let i of llistageneres.generes)  {
    
-        opcionsge += "<option value='" + i.id_genere + "'>"+i.genere+"</option>"
+        opcionsge += "<option value=" + i.id_genere + ">"+i.genere+"</option>"
     }
 
     let html=`

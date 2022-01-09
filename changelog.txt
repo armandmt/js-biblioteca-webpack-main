@@ -1,0 +1,6 @@
+Versió 0.8
+
+Substtutció del mètode at de l'array , que només funciona en edge, per slice(-1),
+ per obtenir el darrer element de l'array i així agafar el darrer id_llibre
+
+         return this.llibres.slice(-1)[0].id_llibre

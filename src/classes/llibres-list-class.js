@@ -15,7 +15,10 @@ export class LlibresList {
 
     darrer_element() {
 
-        return this.llibres.at(-1).id_llibre
+        console.log("Dagger element, dins",this.llibres.slice(-1))
+        //console.log("Dagger id element, dins",this.llibres.slice(-1).id_llibre)
+
+        return this.llibres.slice(-1)[0].id_llibre
     }
 
     nouLlibre(llibre) {
@@ -47,6 +50,26 @@ export class LlibresList {
             // }
         //})
         
+    }
+    filtraPerAutors(autors) {
+
+        // Primer filter recorre tots els llibres
+        // Segon map recorre l'array d'autors filtrats
+        // i comprova si els autors dels llibres que recorrem el contenen
+        const d =this.llibres.filter((element) => 
+            autors.map(ele => element.id_autors.includes(ele)).includes(true)
+            
+             )
+        
+        return d;
+        // autor serà una cadena, amb un text
+        // autorlist l'bojecte que conté la llista d'autors
+        // retornarà un array amb tots els id coincidents
+
+
+
+        // let filtrat = this.llibres.filter( element => element. )
+
     }
 
     desarLocalStorage() {
