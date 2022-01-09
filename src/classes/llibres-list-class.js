@@ -27,14 +27,25 @@ export class LlibresList {
 
     }
     esborraLlibre(id) {
-        this.llibres.foreach( (v,i) => {
+        console.log(id)
+        
+        const trobat = this.llibres.find (element => element.id_llibre === id)
+        console.log("trobat",trobat)
+        const trobatindex = this.llibres.findIndex (element => element.id_llibre === id)
+        console.log("trobat",trobatindex)
+        this.llibres.splice(trobatindex,1)
+        console.log(this.llibres)
 
-            if (v.id==id)
-            {
-                delete this.llibres[i];
-                console.log (this.llibres)
-            }
-        })
+        //;
+        //this.llibres.foreach( (v,i) => {
+
+            // console.log (typeof v.id)
+            // if (v.id==id)
+            // {
+            //     delete this.llibres[i];
+            //     console.log (this.llibres)
+            // }
+        //})
         
     }
 

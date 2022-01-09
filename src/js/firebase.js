@@ -19,6 +19,7 @@ export async function obtenirDades()  {
         data4 = await data4.json();
 
 
+        
         return ([data1,data2,data3,data4]);
 
 
@@ -26,7 +27,7 @@ export async function obtenirDades()  {
     }
     catch {
 
-        console.log("Cagado la hemos")
+        console.log("... la hemos")
         return "null"
     }
    
@@ -57,6 +58,26 @@ export async function setLlibres(llibre,id) {
 
 
     }
+
+
+}
+
+
+export async function delLlibre(id)
+{
+
+        try {
+
+            const res= await  fetch('https://biblioteca-9f853-default-rtdb.europe-west1.firebasedatabase.app/llibres/'+ id+'.json',
+        {
+             method: 'DELETE',
+                          
+        })
+
+        }
+        catch (error) {
+
+        }
 
 
 }

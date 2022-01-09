@@ -4,14 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { header,footer,menu } from "./vistes/headerfootermenu"
 import { creaHTMLFormulariAfegir } from "./vistes/afegirLllibre"
 import { creaHTMLlistaLlibres, veureLlibre} from './vistes/llistaLlibres'
+
 import { formulariLogin,hideLogin } from "./vistes/loginView";
 
 import { omplirDB } from "./bd/omplir";
-import { obtenirDades, setLlibres} from "./js/firebase"
+import { obtenirDades, setLlibres,delLlibre} from "./js/firebase"
 
 import { Llibre,LlibresList,AutorsList,EditorialsList,GeneresList,UsuarisList } from "./classes/index";
 import { isLogged } from './js/componentes';
 import { AssetsList } from './classes/assets-list-class';
+import { crearFormulariFiltrar } from './vistes/filtraLlibres';
 //import { creaHTMLFormulariAfegir } from "./js/componentes";
 
 
@@ -51,7 +53,7 @@ menu();
 
 
 
-var llista,llista_autors,llista_editorials,llista_generes;
+export let llista,llista_autors,llista_editorials,llista_generes;
 
 // Lectura de dades del servidor
 console.log("Abans d'obtenir dades")
@@ -63,11 +65,16 @@ console.log("Abans d'obtenir dades")
 obtenirDades().then((data) => {
 
 
+   
     console.log("Dins del then d'obtenir dades")
 
+    
     console.log(data)   
     llista_autors = new AutorsList(data[1]);
-    llista = new LlibresList(data[0])
+    // Neteja 
+    const myArrClean = data[0].filter(Boolean)
+    llista = new LlibresList(myArrClean)
+    console.log("cACA",llista.llibres);
     llista_editorials = new EditorialsList(data[2]);
     llista_generes = new GeneresList(data[3]);
 
@@ -95,10 +102,36 @@ obtenirDades().then((data) => {
 
 
         event.preventDefault();
-        let index=event.target.parentNode.previousElementSibling.innerHTML
-        console.log(index)
+        let index=-1;
 
-        veureLlibre(llista.llibres[index])
+        console.log(event.target.className)
+        if (event.target.className == "delere")
+        {
+            index=event.target.parentNode.parentNode.parentNode.id    
+            console.log("Esborrar",event.target.src,index)
+            llista.esborraLlibre(parseInt(index));
+           
+            document.querySelector("#divllistar").innerHTML=creaHTMLlistaLlibres(llista,llista_autors,llista_editorials,llista_generes);
+            delLlibre(index)
+           
+
+        }
+        else if (event.target.className == "vide")
+        {
+            index=event.target.parentNode.parentNode.parentNode.id    
+            console.log("Veure",event.target.src,index)
+        }
+        else if (event.target.className == "mutare")
+        {
+            index=event.target.parentNode.parentNode.parentNode.id    
+            console.log("Modificar",event.target.src,index)
+        }
+
+
+        //let index=event.target.parentNode.previousElementSibling.innerHTML
+        //console.log(index)
+
+        //veureLlibre(llista.llibres[index])
         
 
 
@@ -130,15 +163,16 @@ obtenirDades().then((data) => {
     
     
     
-        document.querySelector("#divllistar").remove();
-        let cos= document.createElement('div');
-        cos.id="divllistar"
-        cos.className="container w-75"
-        cos.style.display="none"
+        let cos = document.querySelector("#divllistar")
+        // let cos= document.createElement('div');
+        // cos.id="divllistar"
+        // cos.className="container w-75"
+        // cos.style.display="none"
     
+        // crea HTML
         cos.innerHTML=creaHTMLlistaLlibres(llista,llista_autors,llista_editorials,llista_generes);
-        document.body.append(cos)
-    
+        // document.body.append(cos)
+        // crea esdeveniments
     
     
         alert (titolllibre+ " " + nouindex)
@@ -168,18 +202,11 @@ obtenirDades().then((data) => {
     
     })
     
-    document.querySelector("#esborrar").addEventListener('click',(event) => {
+    document.querySelector("#filtrar").addEventListener('click',(event) => {
     
     
-        let esborrables = document.querySelectorAll(".esborrar");
-
-        for (let i of esborrables)
-        {
-           
-            i.classList.toggle('invisible')
-            console.log(i.innerHTML)
-        }
-        // Visualitzar taula de llibres
+        //document.querySelector(#divllistar).
+        crearFormulariFiltrar()    
     
     
     })

@@ -20,21 +20,18 @@ export const creaHTMLlistaLlibres = (llistallibres, llistaautors,llistaeditorial
         let cad_autors= llistaautors.cercaAutors(v.id_autors)
         let cad_editorials = llistaeditorials.cercaEditorial(v.id_editorial)
         let cad_generes = llistageneres.cercaGenere(v.id_genere)
-        html += `<tr ><td>${v.id_llibre}</td>
-        <td><a href="">${v.titol}</a></td><td>${cad_autors}
+        html += `<tr id="${v.id_llibre}" ><td>${v.id_llibre}</td>
+        <td>${v.titol}</td><td>${cad_autors}
         </td><td>${cad_generes} </td><td>${cad_editorials}
         </td><td>${v.valoracio}</td>
-        <td><input class="esborrar form-check-input invisible" type="checkbox" value="" id="esb${v.id_llibre}""></td></tr>`
+        <td>
+        <a href=""><img class="vide" width=22 src="./assets/img/veure.png"></a> 
+        <a href=""><img class="mutare" width=22 src="./assets/img/modificar.png"></a>
+        <a href=""><img class="delere" width=22 src="./assets/img/esborrar.png"></a>
+        <input class="esborrar form-check-input invisible" type="checkbox" value="" id="esb${v.id_llibre}""></td></tr>`
         //console.log(v.titol)
         
     });
-    
-   
-
-    
-
-       
-
 
     
     html +=`</tbody></table>`
