@@ -100,13 +100,15 @@ obtenirDades().then((data) => {
     divfiltrar.style.display="none"
     document.body.insertBefore(divfiltrar,document.querySelector("#divllistar"))
 
+    // Filtratge
     document.querySelector("#ferfiltre").addEventListener('click',(event) => {
 
         const ele = document.querySelector("#filtraautor").value
-        console.log("Valor filtre",ele)
+        // console.log("Valor filtre",ele)
         // obté array filtrant autors
         const v = llista_autors.filtraAutorsPerText(ele)
         // obtenim array amb només els id dels autors filtrats
+        console.log(v)
         const dv = v.map(ele => ele.id_autor)
         console.log(dv)
         // obté llibres filtrant per llibres
