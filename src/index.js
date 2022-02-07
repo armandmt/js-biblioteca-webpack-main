@@ -169,7 +169,8 @@ obtenirDades().then((data) => {
 
         let autorllibre=[];
     
-        let titolllibre=document.querySelector("#titolllibre").value;
+        //let titolllibre=document.querySelector("#titolllibre").value;
+        let titolllibre=$("#titolllibre").val();
         autorllibre[0]=document.querySelector("#autorllibre").value
         let editorialllibre = document.querySelector("#editorialllibre").value;
         let generellibre = document.querySelector("#generellibre").value;
@@ -191,14 +192,15 @@ obtenirDades().then((data) => {
     
     
     
-        let cos = document.querySelector("#divllistar")
+        //let cos = document.querySelector("#divllistar")
+        $("#divllistar").html(creaHTMLlistaLlibres(llista.llibres,llista_autors,llista_editorials,llista_generes))
         // let cos= document.createElement('div');
         // cos.id="divllistar"
         // cos.className="container w-75"
         // cos.style.display="none"
     
         // crea HTML
-        cos.innerHTML=creaHTMLlistaLlibres(llista.llibres,llista_autors,llista_editorials,llista_generes);
+        //cos.innerHTML=creaHTMLlistaLlibres(llista.llibres,llista_autors,llista_editorials,llista_generes);
         // document.body.append(cos)
         // crea esdeveniments
     
@@ -209,22 +211,37 @@ obtenirDades().then((data) => {
     })
     
     
+    $("#afegir").on("click",(event)=> {
+
+
+        $("#divafegir").show();
+        $("#divllistar").hide();
+        
+
+
+    })
     document.querySelector("#afegir").addEventListener('click',(event) => {
     
     
-        // Visualitzar taula de llibres
+    //     // Visualitzar taula de llibres
     
-        document.querySelector("#divafegir").style.display="block"
-        document.querySelector("#divllistar").style.display="none"
+    //     //document.querySelector("#divafegir").style.display="block"
+    //     $("#divafegir").show();
+    //     $("#divllistar").hide();
+    //     //document.querySelector("#divllistar").style.display="none"
     
     
-    })
+     })
     
     document.querySelector("#llistar").addEventListener('click',(event) => {
     
        
-        document.querySelector("#divafegir").style.display="none"
-        document.querySelector("#divllistar").style.display="block"
+        $("#divafegir").hide();
+        $("#divllistar").show();
+        console.log($("#divllistar").is(":visible"))
+        console.log("aaaa");
+        // document.querySelector("#divafegir").style.display="none"
+        // document.querySelector("#divllistar").style.display="block"
         // Visualitzar taula de llibres
     
     
@@ -233,14 +250,21 @@ obtenirDades().then((data) => {
     document.querySelector("#filtrar").addEventListener('click',(event) => {
        
         // Comprovo l'estat dels bloxk llistar i filtrar
-        const estat = document.querySelector("#divfiltrar").style.display;
-        const estatl = document.querySelector("#divllistar").style.display;
+        
+        //const estat = document.querySelector("#divfiltrar").style.display;
+        //const estatl = document.querySelector("#divllistar").style.display;
         
 
-        if (estat == "none" && estatl == "block")
-            document.querySelector("#divfiltrar").style.display = "block";
+        const estat = $("#divfiltrar").is(":visible");
+        console.log(estat)
+        const estat1 = $("#divllistar").is(":visible");
+
+        if ( !estat  && estat1 )
+            $("#divfiltrar").show(); 
+            //document.querySelector("#divfiltrar").style.display = "block";
         else
-            document.querySelector("#divfiltrar").style.display = "none";
+            $("#divfiltrar").hide();
+            //document.querySelector("#divfiltrar").style.display = "none";
 
         // let existeixdiv = document.querySelector("#divfiltrar")
         // // Comprovem si el div de filtrar existeix
