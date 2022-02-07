@@ -77,18 +77,31 @@ obtenirDades().then((data) => {
     llista_editorials = new EditorialsList(data[2]);
     llista_generes = new GeneresList(data[3]);
 
-    let cos= document.createElement('div');
-    cos.id="divllistar"
-    cos.style.display="none"
-    cos.className="container w-75"
-    cos.innerHTML=creaHTMLlistaLlibres(llista.llibres,llista_autors,llista_editorials,llista_generes);
-    document.body.append(cos)
+
+
+    
+    // let cos= document.createElement('div');
+   
+    let cos = $("<div/>", {
+        id: "divllistar",
+        class: "container w-75",
+        hide: true,
+        html: creaHTMLlistaLlibres(llista.llibres,llista_autors,llista_editorials,llista_generes)
+    })
+    // cos.id="divllistar"
+    // cos.style.display="none"
+    // cos.className="container w-75"
+    // cos.html(creaHTMLlistaLlibres(llista.llibres,llista_autors,llista_editorials,llista_generes));
+    $("body").append(cos)
+    // document.body.append(cos)
 
     cos= document.createElement('div');
     cos.id="divafegir"
     cos.style.display="none"
     cos.className="container w-50"
     cos.innerHTML=creaHTMLFormulariAfegir(llista_autors, llista_editorials,llista_generes)
+    
+    
     document.body.append(cos)
 
 
@@ -246,6 +259,19 @@ obtenirDades().then((data) => {
     
     
     })
+
+
+
+    // for (i=0; i<document.querySelectorAll("button").length; i++)  {
+    //     document.querySelectorAll("button")[i].addEventListener("click",function() {
+    //         document.querySelector("h1").style.color="red";
+    //     });
+    // }
+
+    // $("button").on("click",function() {
+
+    //     $("h1").css("color","red")
+    // })
     
     document.querySelector("#filtrar").addEventListener('click',(event) => {
        
@@ -293,14 +319,17 @@ obtenirDades().then((data) => {
     document.querySelector("#esborraritems").addEventListener('click',(event) =>
     {
 
-            let clicked= document.querySelectorAll(".esborrar")
+            //let clicked= document.querySelectorAll(".esborrar")
+
+            let clicked = $(".esborrar")
+            
 
             for (let i of clicked) 
             {
                 
                 if (i.checked == true){
 
-                    llista.esborraLlibre()
+                    //llista.esborraLlibre()
                     console.log(i.parentNode.parentNode.firstChild.innerHTML)   
 
 
