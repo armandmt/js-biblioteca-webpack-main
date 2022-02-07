@@ -1,6 +1,7 @@
 const HtmlWebpack    = require('html-webpack-plugin')
 const MiniCssExtract = require('mini-css-extract-plugin');
 const CopyPlugin     = require("copy-webpack-plugin");
+var webpack = require('webpack');
 
 module.exports = {
     
@@ -39,6 +40,10 @@ module.exports = {
     optimization: {},
 
     plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            JQuery: 'jquery'
+        }),
         new HtmlWebpack({
             title: 'Mi Webpack App',
             // filename: 'index.html',
